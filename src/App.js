@@ -3,46 +3,54 @@ import React from 'react'
 import './App.css'
 import BookShelf from './BookShelf'
 
-const currentlyBooks = [
-  {
-    "title": "To Kill a Mockingbird",
-    "author": "Harper Lee"
-  },
-  {
-    "title": "Ender's Game",
-    "author": "Orson Scott Card"
-  }
-]
-
-const wantBooks = [
-  {
-    "title": "1776",
-    "author": "David McCullough"
-  },
-  {
-    "title": "Harry Potter and the Sorcerer's Stone",
-    "author": "J.K. Rowling"
-  }
-]
-
-const readBooks = [
-  {
-    "title": "The Hobbit",
-    "author": "J.R.R. Tolkien"
-  },
-  {
-    "title": "The Adventures of Tom Sawyer",
-    "author": "Mark Twai"
-  },
-  {
-    "title": "Oh, the Places You'll Go!",
-    "author": "Seuss"
-  }
-]
-
 class BooksApp extends React.Component {
   state = {
-    showSearchPage: false
+    showSearchPage: false,
+
+    currentlyBooks: [
+      {
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee"
+      },
+      {
+        "title": "Ender's Game",
+        "author": "Orson Scott Card"
+      }
+    ],
+    
+    wantBooks: [
+      {
+        "title": "1776",
+        "author": "David McCullough"
+      },
+      {
+        "title": "Harry Potter and the Sorcerer's Stone",
+        "author": "J.K. Rowling"
+      }
+    ],
+    
+    readBooks: [
+      {
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien"
+      },
+      {
+        "title": "The Adventures of Tom Sawyer",
+        "author": "Mark Twai"
+      },
+      {
+        "title": "Oh, the Places You'll Go!",
+        "author": "Seuss"
+      }
+    ]
+    
+  }
+
+  // The purpose of this function is to change the book shelf each time the user clicks on the select shelf.
+  changeShelf = (shelf) => {
+    this.setState(() => ({
+      
+    }))
   }
 
   render() {
@@ -71,11 +79,11 @@ class BooksApp extends React.Component {
             </div>
             <div className="list-books-content">
               <div>
-                <BookShelf shelfTitle="Currently Reading" books={currentlyBooks}/>
+                <BookShelf shelfTitle="Currently Reading" books={this.state.currentlyBooks}/>
 
-                <BookShelf shelfTitle="Want to Read" books={wantBooks} />
+                <BookShelf shelfTitle="Want to Read" books={this.state.wantBooks} />
 
-                <BookShelf shelfTitle="Read" books={readBooks}/>
+                <BookShelf shelfTitle="Read" books={this.state.readBooks}/>
               </div>
             </div>
             <div className="open-search">
