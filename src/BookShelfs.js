@@ -15,14 +15,14 @@ class BookShelfs extends Component {
                     <h1>MyReads</h1>
                 </div>
                 <div className="list-books-content">
-                    <div>
                         {shelfs.map((shelf) => (
-                            <BookShelf 
-                                shelf={shelf}
-                                books={books}
-                            />
+                            <div key={shelf.id}>
+                                <BookShelf 
+                                    shelf={shelf}
+                                    books={books}
+                                />
+                            </div>
                         ))}
-                    </div>
                 </div>
                 {/* TODO: Busca aqui */}
             </div>

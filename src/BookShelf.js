@@ -10,12 +10,12 @@ class BookShelf extends Component{
         const booksToShow = books.filter( (book) => book.shelf === shelf.id )
 
         return(
-            <div key={shelf.id} className="bookshelf">
+            <div className="bookshelf">
                 <h2 className="bookshelf-title">{shelf.title}</h2>
                 <div className="bookshelf-books">
                     <ol className="books-grid">
                         {booksToShow.map((book) => (
-                            <li key={books.indexOf(book)}>
+                            <li key={book.id}>
                                 <Book book={book} />
                             </li>
                         ))}
