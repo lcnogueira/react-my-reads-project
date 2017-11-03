@@ -1,9 +1,16 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component, PropTypes } from 'react'
+// import PropTypes from 'prop-types'
 
 class Book extends Component {
 
+    static propTypes = {
+        book: PropTypes.object.isRequired,
+    }
+
     render () {
+
+        const {book} = this.props;
+
         return (
             <div className="book">
             <div className="book-top">
@@ -18,16 +25,11 @@ class Book extends Component {
                     </select>
                 </div>
             </div>
-            <div className="book-title">{this.props.book.title}</div>
-            <div className="book-authors">{this.props.book.author}</div>
+            <div className="book-title">{book.title}</div>
+            <div className="book-authors">{book.author}</div>
         </div >
         )
     }
-}
-
-
-Book.PropTypes = {
-    book: PropTypes.object.isRequired,
 }
 
 export default Book
