@@ -7,14 +7,14 @@ class BookShelf extends Component{
 
         const {shelf, books} = this.props;
 
-        const booksExibir = books.filter( (book) => book.shelf === shelf.id )
+        const booksToShow = books.filter( (book) => book.shelf === shelf.id )
 
         return(
             <div key={shelf.id} className="bookshelf">
                 <h2 className="bookshelf-title">{shelf.title}</h2>
                 <div className="bookshelf-books">
                     <ol className="books-grid">
-                        {booksExibir.map((book) => (
+                        {booksToShow.map((book) => (
                             <li key={books.indexOf(book)}>
                                 <Book book={book} />
                             </li>
