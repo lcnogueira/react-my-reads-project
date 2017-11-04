@@ -18,11 +18,14 @@ class BooksApp extends React.Component {
   }
 
   // The purpose of this function is to change the book shelf each time the user clicks on the select shelf.
-  changeShelf = (shelf) => {
-    this.setState(() => ({
-      
-    }))
+  changeShelf = (book, shelf) => {
+    BooksAPI.update(book, shelf).then( () => {
+      BooksAPI.getAll().then( (books) => {
+        this.setState({ books: books})
+      })
+    })
   }
+  
 
   render() {
     const shelfs = [
@@ -53,6 +56,7 @@ class BooksApp extends React.Component {
           <BookShelfs 
             shelfs={shelfs}
             books={this.state.books}
+            onChangeShelf={ (book, shelf) => this.changeShelf(book, shelf) }
           />
         )}
       </div>

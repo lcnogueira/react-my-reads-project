@@ -3,14 +3,15 @@ import BookShelf from './BookShelf'
 import PropTypes from 'prop-types'
 
 class BookShelfs extends Component {
-    
+
     static proptypes = {
         shelfs: PropTypes.array.isRequired,
-        books: PropTypes.array.isRequired
+        books: PropTypes.array.isRequired,
+        onChangeShelf: PropTypes.func.isRequired
     }
 
     render() {
-        const { shelfs, books } = this.props;
+        const { shelfs, books, onChangeShelf } = this.props;
 
         return (
             <div className="list-books">
@@ -23,6 +24,7 @@ class BookShelfs extends Component {
                                 <BookShelf 
                                     shelf={shelf}
                                     books={books}
+                                    onChangeShelf={onChangeShelf}
                                 />
                             </div>
                         ))}
