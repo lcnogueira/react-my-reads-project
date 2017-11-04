@@ -12,19 +12,19 @@ class BooksApp extends React.Component {
   componentDidMount(){
     BooksAPI.getAll().then((books) => {
       this.setState({books: books})
-      // console.log(this.state.books);
     })
     
   }
 
-  // The purpose of this function is to change the book shelf each time the user clicks on the select shelf.
   changeShelf = (book, shelf) => {
-    BooksAPI.update(book, shelf).then( () => {
-      BooksAPI.getAll().then( (books) => {
-        this.setState({ books: books})
-      })
+    book.shelf = shelf
+    BooksAPI.update(book, shelf).then( _=> {
+       const newBookList = this.state.books.filter( (b) => b.id !== book.id )
+       newBookList.push(book)
+       this.setState({books:newBookList})
     })
   }
+
   
 
   render() {
