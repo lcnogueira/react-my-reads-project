@@ -1,8 +1,11 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import BookShelf from './BookShelf'
+import PropTypes from 'prop-types'
 
 class BookShelfs extends Component {
+    
     static proptypes = {
+        shelfs: PropTypes.array.isRequired,
         books: PropTypes.array.isRequired
     }
 
