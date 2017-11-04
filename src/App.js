@@ -1,11 +1,12 @@
 import React from 'react'
+import { Route } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 import BookShelfs from './BookShelfs'
+import Search from './Search'
 
 class BooksApp extends React.Component {
   state = {
-    showSearchPage: false,
     books: [],
   }
 
@@ -13,7 +14,6 @@ class BooksApp extends React.Component {
     BooksAPI.getAll().then((books) => {
       this.setState({books: books})
     })
-    
   }
 
   changeShelf = (book, shelf) => {
@@ -25,8 +25,6 @@ class BooksApp extends React.Component {
     })
   }
 
-  
-
   render() {
     const shelfs = [
       {id: 'currentlyReading', title: 'Currently Reading'},
@@ -36,29 +34,14 @@ class BooksApp extends React.Component {
 
     return (
       <div className="app">
-        {this.state.showSearchPage ? (
-          <div className="search-books">
-            <div className="search-books-bar">
-              <a className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</a>
-              <div className="search-books-input-wrapper">
-                {
-                  //TODO: compare with the model project
-                }
-                <input type="text" placeholder="Search by title or author"/>
-
-              </div>
-            </div>
-            <div className="search-books-results">
-              <ol className="books-grid"></ol>
-            </div>
-          </div>
-        ) : (
-          <BookShelfs 
-            shelfs={shelfs}
-            books={this.state.books}
-            onChangeShelf={ (book, shelf) => this.changeShelf(book, shelf) }
-          />
-        )}
+        <Route path="/" exact render={() => (
+            <BookShelfs 
+              shelfs={shelfs}
+              books={this.state.books}
+              onChangeShelf={ (book, shelf) => this.changeShelf(book, shelf) }
+            />
+        )}/>
+        <Route path="/search" component={Search}/>
       </div>
     )
   }
