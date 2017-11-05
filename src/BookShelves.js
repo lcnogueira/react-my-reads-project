@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom'
 import BookShelf from './BookShelf'
 import PropTypes from 'prop-types'
 
-class BookShelfs extends Component {
+class BookShelves extends Component {
 
     static proptypes = {
-        shelfs: PropTypes.array.isRequired,
+        shelves: PropTypes.array.isRequired,
         books: PropTypes.array.isRequired,
         onChangeShelf: PropTypes.func.isRequired
     }
 
     render() {
-        const { shelfs, books, onChangeShelf } = this.props;
+        const { shelves, books, onChangeShelf } = this.props;
 
         return (
             <div className="list-books">
@@ -20,7 +20,7 @@ class BookShelfs extends Component {
                     <h1>MyReads</h1>
                 </div>
                 <div className="list-books-content">
-                        {shelfs.map((shelf) => (
+                        {shelves.map((shelf) => (
                             <div key={shelf.id}>
                                 <BookShelf 
                                     shelf={shelf}
@@ -40,4 +40,4 @@ class BookShelfs extends Component {
     }
 }
 
-export default BookShelfs
+export default BookShelves
