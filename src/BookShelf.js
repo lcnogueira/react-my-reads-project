@@ -6,7 +6,7 @@ const BookShelf = (props) => {
 
     const {shelf, books, onChangeShelf} = props;
 
-    const booksToShow = books.filter( (book) => book.shelf === shelf.id )
+    const booksToShow = books.filter( (book) => book.shelf === shelf.id );
 
     return(
         <div className="bookshelf">

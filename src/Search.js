@@ -8,22 +8,22 @@ class Search extends Component {
 
     state = {
         books: []
-    }
+    };
 
     searchBooks = (query) => {
         if(query){
             BooksAPI.search(query,1000).then( books => {
-                this.setState({books: books})
+                this.setState({books: books});
             })
         }else{
-            this.setState({books:[]})
+            this.setState({books:[]});
         }
     }
 
     render() {
 
-        const {onChangeShelf} = this.props
-        const {books} = this.state
+        const {onChangeShelf} = this.props;
+        const {books} = this.state;
 
         return (
             <div className="search-books">
