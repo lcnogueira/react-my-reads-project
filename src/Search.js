@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { DebounceInput } from 'react-debounce-input'
 import * as BooksAPI from './BooksAPI'
 import Book from './Book'
-import { DebounceInput } from 'react-debounce-input'
 
 class Search extends Component {
 
     state = {
         books: []
+    };
+
+    static propTypes = {
+        onChangeShelf: PropTypes.func.isRequired
     };
 
     searchBooks = (query) => {
