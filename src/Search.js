@@ -34,7 +34,7 @@ class Search extends Component {
                     >Close></Link>
                     <div className="search-books-input-wrapper">
                         <DebounceInput 
-                            debounceTimeout={100}
+                            debounceTimeout={200}
                             onChange={event => this.searchBooks(event.target.value)}
                         />
                     </div>
