@@ -4,6 +4,11 @@ import Modal from 'react-modal';
 
 class Book extends Component {
 
+    static propTypes = {
+        book: PropTypes.object.isRequired,
+        onChangeShelf: PropTypes.func.isRequired
+    };
+
     constructor(){
         super();
         this.state = {
@@ -68,7 +73,9 @@ class Book extends Component {
                 >
                     <div className="book-info-modal">
                         <h1>{book.title}</h1>
-                        <p>Published: {book.publishedDate}</p>
+                        <h2>{book.subtitle}</h2>
+                        <p>Published: {book.publishedDate} by {book.publisher} </p>
+                        <p>Pages: {book.pageCount}</p>
                         <p>{book.description}</p>
                     </div>
                 </Modal>
@@ -76,11 +83,6 @@ class Book extends Component {
             
         )    
     }
-}
-
-Book.propTypes = {
-    book: PropTypes.object.isRequired,
-    onChangeShelf: PropTypes.func.isRequired
 }
 
 export default Book
