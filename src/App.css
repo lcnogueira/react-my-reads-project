@@ -123,7 +123,8 @@ body, .app {
   width: 140px;
 }
 .book-title,
-.book-authors {
+.book-authors,
+.book-info {
   font-size: 0.8em;
 }
 .book-title {
@@ -131,6 +132,9 @@ body, .app {
 }
 .book-authors {
   color: #999;
+}
+.book-info {
+  color: #00F;
 }
 
 .book-top {
