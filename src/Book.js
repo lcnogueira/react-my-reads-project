@@ -12,11 +12,13 @@ class Book extends Component {
         this.showBookDescription = this.showBookDescription.bind(this);
         this.closeBookDescription = this.closeBookDescription.bind(this);
 
+        //Used to style the modal that shows the book description
         this.customStyles = {
             content: {
+                position            : 'absolute',
                 top                 : '50%',
                 left                : '50%',
-                height              : '300px',
+                height              : '70%',
                 widht               : '400px',
                 right               : 'auto',
                 bottom              : 'auto',
@@ -67,7 +69,6 @@ class Book extends Component {
                         <h1>{book.title}</h1>
                         <p>Published: {book.publishedDate}</p>
                         <p>{book.description}</p>
-                        {console.log(book)}
                     </div>
                 </Modal>
             </div >
