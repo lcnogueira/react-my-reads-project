@@ -64,21 +64,23 @@ class Book extends Component {
                 <div className="book-info">
                     <a href="#" onClick={this.showBookDescription}>Description</a>
                 </div>
-                <Modal 
-                    isOpen={this.state.showInfo} 
-                    onRequestClose={this.closeBookDescription}
-                    shouldCloseOnOverlayClick={true}
-                    style={this.customStyles}
-                    contentLabel="Book Info" 
-                >
-                    <div className="book-info-modal">
-                        <h1>{book.title}</h1>
-                        <h2>{book.subtitle}</h2>
-                        <p>Published: {book.publishedDate} by {book.publisher} </p>
-                        <p>Pages: {book.pageCount}</p>
-                        <p>{book.description}</p>
-                    </div>
-                </Modal>
+                {this.state.showInfo && (
+                    <Modal 
+                        isOpen={this.state.showInfo} 
+                        onRequestClose={this.closeBookDescription}
+                        shouldCloseOnOverlayClick={true}
+                        style={this.customStyles}
+                        contentLabel="Book Info" 
+                    >
+                        <div className="book-info-modal">
+                            <h1>{book.title}</h1>
+                            <h2>{book.subtitle}</h2>
+                            <p>Published: {book.publishedDate} by {book.publisher} </p>
+                            <p>Pages: {book.pageCount}</p>
+                            <p>{book.description}</p>
+                        </div>
+                    </Modal>
+                )}
             </div >
             
         )    
