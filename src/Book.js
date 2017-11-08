@@ -33,7 +33,7 @@ class Book extends Component {
     };
 
     closeBookDescription = () => {
-        this.setState({showInfo: false})
+        this.setState({showInfo: false});
     };
 
     render() {
@@ -66,7 +66,7 @@ class Book extends Component {
                     style={this.customStyles}
                     contentLabel="Book Info" 
                 >
-                    <div>
+                    <div className="book-info-modal">
                         <h1>{book.title}</h1>
                         <p>Published: {book.publishedDate}</p>
                         <p>{book.description}</p>

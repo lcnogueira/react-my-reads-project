@@ -137,6 +137,14 @@ body, .app {
   color: #00F;
 }
 
+.book-info-modal p{
+  font-size: 0.9em;
+}
+
+.book-info-modal h1{
+  font-size: 0.9em;
+}
+
 .book-top {
   position: relative;
   height: 200px;
