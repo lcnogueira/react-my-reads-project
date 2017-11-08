@@ -7,8 +7,11 @@ import Book from './Book';
 
 class Search extends Component {
 
-    state = {
-        books: []
+    constructor(){
+        super();
+        this.state = {
+            books: []
+        };
     };
 
     static propTypes = {
@@ -23,7 +26,7 @@ class Search extends Component {
         }else{
             this.setState({books:[]});
         }
-    }
+    };
 
     render() {
 
