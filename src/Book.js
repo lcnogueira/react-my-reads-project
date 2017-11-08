@@ -22,7 +22,8 @@ class Book extends Component {
                 widht               : '400px',
                 right               : 'auto',
                 bottom              : 'auto',
-                transform           : 'translate(-50%, -50%)'
+                transform           : 'translate(-50%, -50%)',
+                margin              : '20px'
             }
         };
     };
