@@ -33,7 +33,9 @@ class Book extends Component {
         };
     };
 
-    showBookDescription = () => {
+    showBookDescription = (event) => {
+        //It avois the modal to jump to top of the page
+        event.preventDefault();
         this.setState({showInfo:true});
     };
 
@@ -62,7 +64,7 @@ class Book extends Component {
                 <div className="book-title">{book.title}</div>
                 <div className="book-authors">{book.authors}</div>
                 <div className="book-info">
-                    <a href="#" onClick={this.showBookDescription}>Description</a>
+                    <a href="#" onClick={(event) => this.showBookDescription(event)}>Description</a>
                 </div>
                 {this.state.showInfo && (
                     <Modal 
