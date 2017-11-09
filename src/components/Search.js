@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { DebounceInput } from 'react-debounce-input';
-import * as BooksAPI from './BooksAPI';
+import * as BooksAPI from '../utils/BooksAPI';
 import Book from './Book';
 
 class Search extends Component {
