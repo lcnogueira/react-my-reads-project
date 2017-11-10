@@ -6,8 +6,12 @@ import BookShelves from './components/BookShelves';
 import Search from './components/Search';
 
 class BooksApp extends React.Component {
-  state = {
-    books: []
+
+  constructor(){
+    super();
+    this.state = {
+      books: []
+    };
   };
 
   componentDidMount(){
@@ -19,9 +23,7 @@ class BooksApp extends React.Component {
   changeShelf = (book, shelf) => {
     book.shelf = shelf;
     BooksAPI.update(book, shelf).then( _=> {
-       const newBookList = this.state.books.filter( (b) => b.id !== book.id );
-       newBookList.push(book);
-       this.setState({books:newBookList});
+      this.setState({books: this.state.books.filter( (b) => b.id !== book.id).concat([ book ])});
     });
   };
 
@@ -43,9 +45,7 @@ class BooksApp extends React.Component {
         )}/>
         <Route path="/search" render={() => (
           <Search
-            onChangeShelf={ (book, shelf) => {
-              this.changeShelf(book, shelf) 
-            }}
+            onChangeShelf={ this.changeShelf }
           />
         )}
         />
