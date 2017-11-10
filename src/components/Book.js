@@ -18,19 +18,7 @@ class Book extends Component {
         this.closeBookDescription = this.closeBookDescription.bind(this);
 
         //Used to style the modal that shows the book description
-        this.customStyles = {
-            content: {
-                position            : 'absolute',
-                top                 : '50%',
-                left                : '50%',
-                height              : '70%',
-                widht               : '400px',
-                right               : 'auto',
-                bottom              : 'auto',
-                transform           : 'translate(-50%, -50%)',
-                margin              : '20px'
-            }
-        };
+        
     };
 
     showBookDescription = (event) => {
@@ -71,7 +59,8 @@ class Book extends Component {
                         isOpen={this.state.showInfo} 
                         onRequestClose={this.closeBookDescription}
                         shouldCloseOnOverlayClick={true}
-                        style={this.customStyles}
+                        className={'book-modal'}
+                        overlayClassName={'book-modal-overlay'}
                         contentLabel="Book Info" 
                     >
                         <div className="book-info-modal">
