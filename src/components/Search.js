@@ -15,14 +15,25 @@ class Search extends Component {
     };
 
     static propTypes = {
-        onChangeShelf: PropTypes.func.isRequired
+        onChangeShelf: PropTypes.func.isRequired,
+        shelfBooks: PropTypes.array.isRequired
     };
 
+    //It calls the API for books. For each book, if the same book is in the shelfBoooks array, it updates the book shelf.
     searchBooks = (query) => {
+        const{shelfBooks} = this.props;
+
         if(query){
-            BooksAPI.search(query,1000).then( books => {
-                this.setState({books: books});
-            })
+            BooksAPI.search(query,1000).then( (searchResp) => {
+                if(searchResp.length>0){
+                    const booksToShow = searchResp.map( (searchBook) => {
+                        const found = shelfBooks.find( (shelfBook) => shelfBook.id === searchBook.id);
+                        searchBook.shelf = found ? found.shelf : 'none';
+                        return searchBook;
+                    });
+                    this.setState({books:booksToShow});
+                }
+            });
         }else{
             this.setState({books:[]});
         }
@@ -44,7 +55,7 @@ class Search extends Component {
                         <DebounceInput 
                             placeholder="Search..."
                             debounceTimeout={200}
-                            onChange={event => this.searchBooks(event.target.value)}
+                            onChange={(event) => this.searchBooks(event.target.value)}
                         />
                     </div>
                 </div>
