@@ -16,9 +16,6 @@ class Book extends Component {
         };
         this.showBookDescription = this.showBookDescription.bind(this);
         this.closeBookDescription = this.closeBookDescription.bind(this);
-
-        //Used to style the modal that shows the book description
-        
     };
 
     showBookDescription = (event) => {
