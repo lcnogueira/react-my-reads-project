@@ -17,7 +17,7 @@ const BookShelves = (props) => {
                         <div key={shelf.id}>
                             <BookShelf 
                                 shelf={shelf}
-                                books={books}
+                                books={books.filter( (book) => book.shelf === shelf.id )}
                                 onChangeShelf={onChangeShelf}
                             />
                         </div>
