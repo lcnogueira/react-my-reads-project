@@ -36,7 +36,7 @@ Just:
 
 ## Backend Server
 
-The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods needed to perform necessary operations on the backend. To see the avaliable methods and their signature, visit  [Starter Template from Udacity](https://github.com/udacity/reactnd-project-myreads-starter).
+The provided file [`BooksAPI.js`](src/utils/BooksAPI.js) contains the methods needed to perform necessary operations on the backend. To see the avaliable methods and their signature, visit  [Starter Template from Udacity](https://github.com/udacity/reactnd-project-myreads-starter).
 
 ## Important
 The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
