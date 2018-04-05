@@ -32,6 +32,8 @@ class Search extends Component {
                         return searchBook;
                     });
                     this.setState({books:booksToShow});
+                }else{
+                    this.setState({books:[]});        
                 }
             });
         }else{
