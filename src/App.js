@@ -42,7 +42,7 @@ class BooksApp extends React.Component {
             <BookShelves 
               shelves={shelves}
               books={books}
-              onChangeShelf={ (book, shelf) => this.changeShelf(book, shelf) }
+              onChangeShelf={ this.changeShelf }
             />
         )}/>
         <Route path="/search" render={() => (

@@ -14,8 +14,8 @@ class Book extends Component {
         this.state = {
             showInfo: false
         };
-        this.showBookDescription = this.showBookDescription.bind(this);
-        this.closeBookDescription = this.closeBookDescription.bind(this);
+        // this.showBookDescription = this.showBookDescription.bind(this);
+        // this.closeBookDescription = this.closeBookDescription.bind(this);
     };
 
     showBookDescription = (event) => {
